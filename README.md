@@ -40,7 +40,7 @@ Those resources should be composed separately.
 
 ```hcl
 module "ipsec" {
-  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-ipsec.git?ref=main"
+  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-ipsec.git?ref=v0.1.0"
 
   compartment_ocid = var.compartment_ocid
   name             = "ipsec-fk-demo"

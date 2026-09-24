@@ -2,7 +2,7 @@
 
 This repository contains a reusable **Terraform/OpenTofu module** for deploying **Oracle Cloud Infrastructure (OCI) IPSec connectivity primitives** such as **Customer Premises Equipment (CPE)** objects, **IPSec connections**, and optional **per-tunnel management**.
 
-It is part of the **[FoggyKitchen.com training ecosystem](https://foggykitchen.com/courses-2/)** and serves as the OCI VPN edge building block for hybrid and multicloud connectivity patterns.
+It is part of the **[FoggyKitchen.com training ecosystem](https://foggykitchen.com/)** and serves as the OCI VPN edge building block for hybrid and multicloud connectivity patterns.
 
 Support expectations are documented in [SUPPORT.md](SUPPORT.md).
 

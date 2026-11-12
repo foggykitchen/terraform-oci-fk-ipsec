@@ -59,7 +59,7 @@ terraform-oci-fk-ipsec/
 
 ```hcl
 module "ipsec" {
-  source = "git::https://github.com/foggykitchen/terraform-oci-fk-ipsec.git?ref=v0.2.0" # TODO: tag not yet released
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-ipsec.git?ref=v0.2.0"
 
   compartment_ocid = var.compartment_ocid
   name             = "ipsec-fk-demo"

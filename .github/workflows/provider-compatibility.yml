@@ -1,0 +1,44 @@
+name: OCI 9 compatibility
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        root: ["."]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.11.6
+          tofu_wrapper: false
+      - name: Check formatting
+        working-directory: ${{ matrix.root }}
+        run: tofu fmt -check
+      - name: Pin the tested OCI provider
+        working-directory: ${{ matrix.root }}
+        run: |
+          cat > ci_override.tf <<'EOF'
+          terraform {
+            required_providers {
+              oci = {
+                source = "oracle/oci"
+                version = "= 9.12.1"
+              }
+            }
+          }
+          EOF
+      - name: Initialize
+        working-directory: ${{ matrix.root }}
+        run: tofu init -backend=false -input=false
+      - name: Validate
+        working-directory: ${{ matrix.root }}
+        run: tofu validate
+      - name: Mocked plans
+        working-directory: ${{ matrix.root }}
+        run: tofu test

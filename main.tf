@@ -3,9 +3,7 @@ resource "oci_core_cpe" "this" {
   ip_address     = var.cpe_ip_address
   display_name   = coalesce(var.cpe_display_name, "${var.name}-cpe")
 
-  cpe_device_shape_id       = var.cpe_device_shape_id
-  cpe_local_identifier      = var.cpe_local_identifier
-  cpe_local_identifier_type = var.cpe_local_identifier_type
+  cpe_device_shape_id = var.cpe_device_shape_id
 
   defined_tags  = var.defined_tags
   freeform_tags = var.freeform_tags
